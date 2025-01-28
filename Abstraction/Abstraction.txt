@@ -1,0 +1,37 @@
+1. What is Abstraction ?
+* Hiding Complexity: Abstraction hides the implementation details and shows only the necessary features or functionality of an object.
+* Simplified Interface: It allows for the creation of a simplified interface to interact with complex systems, focusing on what the object does rather than how it does it.
+
+2. How is Abstraction Achieved in Java?
+  In Java, abstraction can be achieved in two ways:
+
+* Abstract Classes
+* Interfaces
+
+1. Abstract Classes
+An abstract class is a class that cannot be instantiated on its own and must be inherited by other classes. It can contain both abstract methods (methods without a body) and concrete 
+methods (methods with a body).
+
+Abstract Method: A method declared in an abstract class that does not have a body. It is intended to be implemented by subclasses.
+Concrete Method: A regular method that is fully implemented in the abstract class.
+
+* Can have abstract methods (without implementation).
+* Can have concrete methods (with implementation).
+* Can have instance variables.
+* A class can extend only one abstract class (since Java does not support multiple inheritance of classes).
+
+2. Interfaces
+An interface is a contract that defines a set of abstract methods (and in modern Java, default methods with implementation) that the implementing class must provide. 
+* Interfaces are used to achieve abstraction and multiple inheritance in Java
+* All methods in an interface are implicitly abstract (until Java 8).
+* You can define default methods in an interface (since Java 8), which have an implementation.
+* A class can implement multiple interfaces.
+* Interfaces cannot have instance variables (only static final variables).
+
+3. When to Use Abstraction:
+* When you want to hide complex implementation details and only expose essential features.
+* When you want to create a common interface that can be implemented by multiple classes (using interfaces).
+* When you want to provide a template method or abstract behavior that must be implemented by subclasses (using abstract classes).
+
+
+
