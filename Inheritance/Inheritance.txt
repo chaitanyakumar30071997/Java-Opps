@@ -1,0 +1,254 @@
+1. What is Inheritance in Java?
+Definition: Inheritance is a mechanism in Java where one class acquires the properties  and behaviors  use in another class. It is a way to reuse code and establish a relationship between parent and child classes.
+Key Benefit: Code reusability. It promotes a hierarchical class structure where subclasses can build upon or override methods from a parent class.
+
+2. Types of Inheritance
+Single Inheritance: A subclass inherits from only one superclass.
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+--> Multilevel Inheritance: A class inherits from another class, and that class may inherit from yet another class.
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Puppy extends Dog {
+    void play() {
+        System.out.println("Playing...");
+    }
+}
+
+--> Hierarchical Inheritance: Multiple classes inherit from a single parent class.
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Meowing...");
+    }
+}
+--> Multiple Inheritance (via Interfaces): Java doesn’t support multiple inheritance directly (i.e., a class can’t extend more than one class), but it supports multiple inheritance through interfaces.
+interface Animal {
+    void sound();
+}
+
+interface Mammal {
+    void walk();
+}
+
+class Dog implements Animal, Mammal {
+    public void sound() {
+        System.out.println("Bark");
+    }
+
+    public void walk() {
+        System.out.println("Walking on four legs");
+    }
+}
+
+*** 3. How does Inheritance work in Java?
+The subclass inherits non-private members (fields and methods) from the superclass.
+If a subclass wants to use or modify a superclass method, it can:
+Override the method (if it's not final, static, or private).
+Use the super keyword to call a method or constructor of the superclass.
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void eat() {
+        super.eat();  // Calls the parent class's eat() method
+        System.out.println("Dog is eating...");
+    }
+}
+
+
+When discussing Inheritance in Java in an interview, you’ll likely need to cover several aspects. Here’s a breakdown of the key points, along with what you should be prepared to answer or explain:
+
+1. What is Inheritance in Java?
+Definition: Inheritance is a mechanism in Java where one class acquires the properties (fields) and behaviors (methods) of another class. It is a way to reuse code and establish a relationship between parent and child classes.
+Key Benefit: Code reusability. It promotes a hierarchical class structure where subclasses can build upon or override methods from a parent class.
+2. Types of Inheritance
+Single Inheritance: A subclass inherits from only one superclass.
+
+java
+Copy
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+Multilevel Inheritance: A class inherits from another class, and that class may inherit from yet another class.
+
+java
+Copy
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Puppy extends Dog {
+    void play() {
+        System.out.println("Playing...");
+    }
+}
+Hierarchical Inheritance: Multiple classes inherit from a single parent class.
+
+java
+Copy
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Meowing...");
+    }
+}
+Multiple Inheritance (via Interfaces): Java doesn’t support multiple inheritance directly (i.e., a class can’t extend more than one class), but it supports multiple inheritance through interfaces.
+
+java
+Copy
+interface Animal {
+    void sound();
+}
+
+interface Mammal {
+    void walk();
+}
+
+class Dog implements Animal, Mammal {
+    public void sound() {
+        System.out.println("Bark");
+    }
+
+    public void walk() {
+        System.out.println("Walking on four legs");
+    }
+}
+3. How does Inheritance work in Java?
+The subclass inherits non-private members (fields and methods) from the superclass.
+If a subclass wants to use or modify a superclass method, it can:
+Override the method (if it's not final, static, or private).
+Use the super keyword to call a method or constructor of the superclass.
+Example:
+java
+Copy
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void eat() {
+        super.eat();  // Calls the parent class's eat() method
+        System.out.println("Dog is eating...");
+    }
+}
+*** 4. What is the super keyword in Inheritance?
+The super keyword refers to the immediate parent class. It can be used to:
+
+Call a superclass constructor.
+Access superclass methods.
+Access superclass fields (if they are not hidden by the subclass)
+
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+    
+    void sound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super();  // Calls the constructor of Animal
+        System.out.println("Dog constructor");
+    }
+
+    @Override
+    void sound() {
+        super.sound();  // Calls the sound() method of Animal
+        System.out.println("Bark");
+    }
+}
+
+5. What are the advantages of using inheritance?
+Code Reusability: A subclass can reuse the methods and fields of the superclass, reducing redundancy.
+Method Overriding: A subclass can provide a specific implementation of a method inherited from the superclass.
+Extensibility: New classes can be easily added without modifying existing code.
+
+6. What are the disadvantages or challenges of inheritance?
+Tight Coupling: A subclass is tightly coupled with its superclass, which can cause maintenance problems if the superclass is modified.
+Method Overriding Complexity: If a subclass overrides too many methods, it may become difficult to track which methods belong to which class.
+Inheritance Limitation: Java does not support multiple inheritance directly, which can limit the flexibility of the inheritance model (though interfaces help solve this issue).
+
+7. Can you override the constructor in Java?
+No, constructors cannot be overridden in Java. However, constructors from the parent class can be called using the super() keyword.
+The constructor is not inherited by the child class, but the child class can call the parent class constructor to initialize its inherited fields.
+
+8. When should you use inheritance?
+You should use inheritance when there is a clear "is-a" relationship between the subclass and superclass. For example, "Dog is an Animal" is a perfect example of inheritance. Avoid using inheritance in situations where a "has-a" or "uses-a" relationship exists, as composition might be more appropriate.
+
+9. Example of method overriding with inheritance
+Overriding allows a subclass to provide its own implementation of a method that is already defined in its superclass
+
+
+
+
+
+
+
