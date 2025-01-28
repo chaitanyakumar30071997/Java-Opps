@@ -1,0 +1,57 @@
+1. What is Encapsulation?
+Answer:Encapsulation describes the ability of an object to hide its data and method from the rest of the world.
+allowing controlled access to the rest via public methods, often referred to as getters and setters.
+
+Key Point: The idea is to protect the internal state of an object from unintended or unauthorized access and modification.
+
+2. What are the benefits of Encapsulation?
+Answer: Encapsulation offers several benefits, including:
+* Data Protection: By using private fields and providing controlled access through getters and setters, you protect the object's internal state from unintended changes.
+* Code Flexibility: You can change the internal implementation of a class without affecting other parts of the code that interact with the class, as long as the public methods remain unchanged.
+* Maintainability: Since the internal workings of the class are hidden, you can modify them without breaking the code that uses the class.
+* Abstraction: Encapsulation hides the complexity of an object’s implementation from the outside world, providing a clean and simple interface.
+
+3. What is the difference between encapsulation and abstraction?
+Answer: While both encapsulation and abstraction are OOP principles that help in hiding details, there is a key difference:
+
+* Encapsulation is about hiding the internal state of an object and providing controlled access via methods (like getters and setters).
+* Abstraction is about hiding the implementation details and exposing only the necessary functionality through abstract interfaces or classes, often providing an interface to interact with.
+In simpler terms:
+
+* Encapsulation is concerned with how the data is stored and accessed (focusing on "how").
+* Abstraction focuses on what functionality is exposed to the user (simplifying complex systems).
+
+4. How do you implement Encapsulation in Java?
+Answer: In Java, you implement encapsulation by:
+
+Declaring class fields as private so that they cannot be accessed directly from outside the class.
+Providing public getter and setter methods to allow controlled access to those fields.
+
+class Person {
+    private String name;   // Private field
+    private int age;       // Private field
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // Setter method for age
+    public void setAge(int age) {
+        if (age > 0) { // Validation for setting a positive age
+            this.age = age;
+        } else {
+            System.out.println("Age must be positive.");
+        }
+    }
+}
