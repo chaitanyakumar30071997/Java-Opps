@@ -50,8 +50,22 @@ class Person {
     public void setAge(int age) {
         if (age > 0) { // Validation for setting a positive age
             this.age = age;
+
+
+
+6. What are getters and setters, and why are they important?
+Answer: Getters and setters are public methods that allow controlled access to private fields:
+
+Getter methods retrieve the value of a private field.
+Setter methods modify the value of a private field, often including validation logic to ensure that only valid data is set.
         } else {
             System.out.println("Age must be positive.");
         }
     }
 }
+
+7. What is the role of the private keyword in Encapsulation?
+Answer: The private keyword is used to make fields or methods accessible only within the same class. This is crucial for encapsulation because it ensures that:
+
+Fields cannot be accessed directly from outside the class, thus preventing unauthorized or accidental modification of the object’s state.
+Methods can be hidden, so only the necessary functionality is exposed through public getter and setter methods.
